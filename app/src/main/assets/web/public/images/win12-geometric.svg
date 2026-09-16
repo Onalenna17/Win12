@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07121f"/><stop offset="1" stop-color="#253d65"/></linearGradient>
+    <linearGradient id="plane" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a4d5f2" stop-opacity=".55"/><stop offset=".43" stop-color="#5e95c8" stop-opacity=".15"/><stop offset="1" stop-color="#162d4f" stop-opacity=".75"/></linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#bdd6f8" stop-opacity="0"/><stop offset=".5" stop-color="#aedaf2" stop-opacity=".75"/><stop offset="1" stop-color="#bedcfe" stop-opacity="0"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#5093cd" stop-opacity=".28"/><stop offset="1" stop-color="#4084c6" stop-opacity="0"/></radialGradient>
+    <filter id="shadow" x="-.5" y="-.5" width="2" height="2"><feGaussianBlur stdDeviation="38"/></filter>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h3840v2160H0z"/>
+  <ellipse cx="2580" cy="920" rx="1650" ry="1380" fill="url(#glow)"/>
+  <g transform="translate(2100 1110) rotate(-31)">
+    <rect x="-980" y="-800" width="1900" height="1350" rx="95" fill="#050e22" opacity=".48" filter="url(#shadow)" transform="translate(0 90)"/>
+    <rect x="-940" y="-820" width="1900" height="1350" rx="80" fill="url(#plane)" stroke="#9bbedc" stroke-opacity=".24" stroke-width="3"/>
+    <path d="M-860-818H880" stroke="url(#edge)" stroke-width="4"/>
+    <rect x="-650" y="-520" width="1900" height="1350" rx="80" fill="url(#plane)" stroke="#9bbedc" stroke-opacity=".3" stroke-width="3"/>
+    <path d="M-570-518H1170" stroke="url(#edge)" stroke-width="4"/>
+    <rect x="-360" y="-220" width="1900" height="1350" rx="80" fill="url(#plane)" stroke="#9bbedc" stroke-opacity=".4" stroke-width="3"/>
+    <path d="M-280-218H1460" stroke="url(#edge)" stroke-width="5"/>
+  </g>
+</svg>

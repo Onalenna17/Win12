@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061224"/><stop offset=".6" stop-color="#0a2448"/><stop offset="1" stop-color="#0c1c37"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8bd2ff"/><stop offset=".2" stop-color="#298beb"/><stop offset=".48" stop-color="#194a9b"/><stop offset=".72" stop-color="#103269"/><stop offset="1" stop-color="#459bea"/></linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d3f4ff" stop-opacity=".9"/><stop offset=".48" stop-color="#3891ec" stop-opacity=".2"/><stop offset="1" stop-color="#80c6ff"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#328ef2" stop-opacity=".19"/><stop offset="1" stop-color="#0a2140" stop-opacity="0"/></radialGradient>
+    <filter id="shadow" x="-.5" y="-.5" width="2" height="2"><feGaussianBlur stdDeviation="35"/></filter>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h3840v2160H0z"/><ellipse cx="2420" cy="1000" rx="1550" ry="1280" fill="url(#glow)"/>
+  <g transform="translate(2320 1020) rotate(-22)">
+    <ellipse cy="300" cx="80" rx="1040" ry="810" fill="#020b1d" opacity=".6" filter="url(#shadow)"/>
+    <path d="M-1000-730C-330-1260 720-920 910-260S310 1030-480 650C-1100 350-730-400-130-315C430-230 480 370 0 510" fill="none" stroke="url(#glass)" stroke-width="340"/>
+    <path d="M-1100-868C-350-1510 930-1090 1080-300S340 1280-562 805C-1370 405-790-635-100-483C685-310 690 580 48 676" fill="none" stroke="url(#rim)" stroke-width="5"/>
+    <path d="M-1000-730C-330-1260 720-920 910-260S310 1030-480 650C-1100 350-730-400-130-315C430-230 480 370 0 510" fill="none" stroke="#8fcbff" stroke-width=".8" opacity=".25"/>
+  </g>
+</svg>

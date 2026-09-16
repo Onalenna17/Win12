@@ -1,0 +1,17 @@
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/storage/StorageManager.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/runtime/RuntimeInstaller.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/MainActivity.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/logging/Win12Logger.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/runtime/RuntimeStatus.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/apps/AppRegistry.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/runtime/RuntimeProcess.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/security/PermissionManager.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/runtime/PrefixManager.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/apps/ExeLauncher.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/system/Win12SoundService.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/model/WinApp.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/runtime/RuntimeValidator.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/apps/ExeInstaller.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/runtime/RuntimeManager.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/apps/PeHeaderReader.kt
+/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/kotlin/com/win12/bridge/Win12Bridge.kt

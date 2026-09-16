@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2160" height="3840" viewBox="0 0 2160 3840">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#061325"/><stop offset=".5" stop-color="#0e2c55"/><stop offset="1" stop-color="#081a34"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8cd5ff"/><stop offset=".2" stop-color="#3189e2"/><stop offset=".49" stop-color="#123e85"/><stop offset=".75" stop-color="#0e2b61"/><stop offset="1" stop-color="#4d9de6"/></linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d3f4ff" stop-opacity=".9"/><stop offset=".48" stop-color="#3891ec" stop-opacity=".2"/><stop offset="1" stop-color="#80c6ff"/></linearGradient>
+    <filter id="shadow" x="-.5" y="-.5" width="2" height="2"><feGaussianBlur stdDeviation="40"/></filter>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h2160v3840H0z"/>
+  <g transform="translate(1100 2130) rotate(-34) scale(1.13)">
+    <ellipse cx="150" cy="240" rx="770" ry="1160" fill="#031127" opacity=".52" filter="url(#shadow)"/>
+    <path d="M-680-1240C220-1410 1040-730 880 30S-110 1130-670 620C-1180 160-550-590 70-270C580-20 420 610-120 530" fill="none" stroke="url(#glass)" stroke-width="350"/>
+    <path d="M-680-1415C300-1610 1230-710 1050 95S-130 1370-800 750C-1450 100-550-840 151-427C830-30 450 865-143 704" fill="none" stroke="url(#rim)" stroke-width="5"/>
+  </g>
+</svg>

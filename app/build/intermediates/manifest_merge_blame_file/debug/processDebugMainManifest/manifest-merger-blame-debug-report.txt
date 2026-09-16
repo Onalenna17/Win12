@@ -1,0 +1,216 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.win12"
+4    android:versionCode="2"
+5    android:versionName="1.1" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="36" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:5:5-67
+11-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:5:22-64
+12
+13    <queries>
+13-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:7:5-14:15
+14        <package android:name="com.android.chrome" />
+14-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:8:9-54
+14-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:8:18-51
+15        <package android:name="net.metaquotes.metatrader5" />
+15-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:9:9-62
+15-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:9:18-59
+16
+17        <intent>
+17-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:10:9-13:18
+18            <action android:name="android.intent.action.MAIN" />
+18-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:11:13-65
+18-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:11:21-62
+19
+20            <category android:name="android.intent.category.LAUNCHER" />
+20-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:12:13-73
+20-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:12:23-70
+21        </intent>
+22
+23        <package android:name="io.github.mohammedbaqernull.logger" />
+23-->[logger-runtime.aar] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/5974062a9672701918f8a65a8dfaceef/transformed/logger-runtime/AndroidManifest.xml:11:9-70
+23-->[logger-runtime.aar] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/5974062a9672701918f8a65a8dfaceef/transformed/logger-runtime/AndroidManifest.xml:11:18-67
+24    </queries>
+25
+26    <!-- Native all-files storage access: full "All Files Access" on Android 11+ (API 30+) -->
+27    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+27-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:17:5-19:40
+27-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:18:9-66
+28
+29    <!-- Legacy shared-storage permissions for devices below Android 11 -->
+30    <uses-permission
+30-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:22:5-24:38
+31        android:name="android.permission.READ_EXTERNAL_STORAGE"
+31-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:23:9-64
+32        android:maxSdkVersion="29" />
+32-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:24:9-35
+33    <uses-permission
+33-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:25:5-27:38
+34        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+34-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:26:9-65
+35        android:maxSdkVersion="28" />
+35-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:27:9-35
+36    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+36-->[logger-runtime.aar] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/5974062a9672701918f8a65a8dfaceef/transformed/logger-runtime/AndroidManifest.xml:7:5-75
+36-->[logger-runtime.aar] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/5974062a9672701918f8a65a8dfaceef/transformed/logger-runtime/AndroidManifest.xml:7:22-72
+37    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+37-->[logger-runtime.aar] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/5974062a9672701918f8a65a8dfaceef/transformed/logger-runtime/AndroidManifest.xml:8:5-77
+37-->[logger-runtime.aar] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/5974062a9672701918f8a65a8dfaceef/transformed/logger-runtime/AndroidManifest.xml:8:22-74
+38
+39    <permission
+39-->[androidx.core:core:1.17.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/566aa0115332a8cecd497641b67456f0/transformed/core-1.17.0/AndroidManifest.xml:22:5-24:47
+40        android:name="com.win12.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+40-->[androidx.core:core:1.17.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/566aa0115332a8cecd497641b67456f0/transformed/core-1.17.0/AndroidManifest.xml:23:9-81
+41        android:protectionLevel="signature" />
+41-->[androidx.core:core:1.17.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/566aa0115332a8cecd497641b67456f0/transformed/core-1.17.0/AndroidManifest.xml:24:9-44
+42
+43    <uses-permission android:name="com.win12.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+43-->[androidx.core:core:1.17.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/566aa0115332a8cecd497641b67456f0/transformed/core-1.17.0/AndroidManifest.xml:26:5-97
+43-->[androidx.core:core:1.17.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/566aa0115332a8cecd497641b67456f0/transformed/core-1.17.0/AndroidManifest.xml:26:22-94
+44
+45    <application
+45-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:29:5-61:19
+46        android:allowBackup="true"
+46-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:30:9-35
+47        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+47-->[androidx.core:core:1.17.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/566aa0115332a8cecd497641b67456f0/transformed/core-1.17.0/AndroidManifest.xml:28:18-86
+48        android:dataExtractionRules="@xml/data_extraction_rules"
+48-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:31:9-65
+49        android:debuggable="true"
+50        android:extractNativeLibs="false"
+51        android:fullBackupContent="@xml/backup_rules"
+51-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:32:9-54
+52        android:icon="@mipmap/ic_launcher"
+52-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:33:9-43
+53        android:label="@string/app_name"
+53-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:34:9-41
+54        android:requestLegacyExternalStorage="true"
+54-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:35:9-52
+55        android:roundIcon="@mipmap/ic_launcher_round"
+55-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:36:9-54
+56        android:supportsRtl="true"
+56-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:37:9-35
+57        android:theme="@style/Theme.Win12" >
+57-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:38:9-43
+58        <provider
+59            android:name="androidx.core.content.FileProvider"
+59-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:40:13-62
+60            android:authorities="com.win12.files"
+60-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:41:13-57
+61            android:exported="false"
+61-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:42:13-37
+62            android:grantUriPermissions="true" >
+62-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:43:13-47
+63            <meta-data
+63-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:44:13-46:54
+64                android:name="android.support.FILE_PROVIDER_PATHS"
+64-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:45:17-67
+65                android:resource="@xml/file_paths" />
+65-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:46:17-51
+66        </provider>
+67
+68        <activity
+68-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:49:9-60:20
+69            android:name="com.win12.MainActivity"
+69-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:50:13-50
+70            android:configChanges="orientation|screenSize|screenLayout|keyboard|keyboardHidden|navigation"
+70-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:54:13-107
+71            android:exported="true"
+71-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:51:13-36
+72            android:label="@string/app_name"
+72-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:52:13-45
+73            android:theme="@style/Theme.Win12" >
+73-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:53:13-47
+74            <intent-filter>
+74-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:55:13-59:29
+75                <action android:name="android.intent.action.MAIN" />
+75-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:11:13-65
+75-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:11:21-62
+76
+77                <category android:name="android.intent.category.LAUNCHER" />
+77-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:12:13-73
+77-->/storage/emulated/0/AndroidIDEProjects/Win12/app/src/main/AndroidManifest.xml:12:23-70
+78            </intent-filter>
+79        </activity>
+80
+81        <provider
+81-->[logger-runtime.aar] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/5974062a9672701918f8a65a8dfaceef/transformed/logger-runtime/AndroidManifest.xml:15:9-18:39
+82            android:name="io.github.mohammedbaqernull.logger.logwire.LogWireInitializer"
+82-->[logger-runtime.aar] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/5974062a9672701918f8a65a8dfaceef/transformed/logger-runtime/AndroidManifest.xml:16:13-89
+83            android:authorities="com.win12.logwire.initializer"
+83-->[logger-runtime.aar] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/5974062a9672701918f8a65a8dfaceef/transformed/logger-runtime/AndroidManifest.xml:17:13-71
+84            android:exported="true" />
+84-->[logger-runtime.aar] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/5974062a9672701918f8a65a8dfaceef/transformed/logger-runtime/AndroidManifest.xml:18:13-36
+85        <provider
+85-->[androidx.emoji2:emoji2:1.3.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1f2399816dcead1c63948e051ae87839/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+86            android:name="androidx.startup.InitializationProvider"
+86-->[androidx.emoji2:emoji2:1.3.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1f2399816dcead1c63948e051ae87839/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+87            android:authorities="com.win12.androidx-startup"
+87-->[androidx.emoji2:emoji2:1.3.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1f2399816dcead1c63948e051ae87839/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+88            android:exported="false" >
+88-->[androidx.emoji2:emoji2:1.3.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1f2399816dcead1c63948e051ae87839/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+89            <meta-data
+89-->[androidx.emoji2:emoji2:1.3.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1f2399816dcead1c63948e051ae87839/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+90                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+90-->[androidx.emoji2:emoji2:1.3.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1f2399816dcead1c63948e051ae87839/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+91                android:value="androidx.startup" />
+91-->[androidx.emoji2:emoji2:1.3.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1f2399816dcead1c63948e051ae87839/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+92            <meta-data
+92-->[androidx.lifecycle:lifecycle-process:2.6.2] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/ba197174ac8661a8b1686f907039342e/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:29:13-31:52
+93                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+93-->[androidx.lifecycle:lifecycle-process:2.6.2] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/ba197174ac8661a8b1686f907039342e/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:30:17-78
+94                android:value="androidx.startup" />
+94-->[androidx.lifecycle:lifecycle-process:2.6.2] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/ba197174ac8661a8b1686f907039342e/transformed/lifecycle-process-2.6.2/AndroidManifest.xml:31:17-49
+95            <meta-data
+95-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+96                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+96-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+97                android:value="androidx.startup" />
+97-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+98        </provider>
+99
+100        <receiver
+100-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+101            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+101-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+102            android:directBootAware="false"
+102-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+103            android:enabled="true"
+103-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+104            android:exported="true"
+104-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+105            android:permission="android.permission.DUMP" >
+105-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+106            <intent-filter>
+106-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+107                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+107-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+107-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+108            </intent-filter>
+109            <intent-filter>
+109-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+110                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+110-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+110-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+111            </intent-filter>
+112            <intent-filter>
+112-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+113                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+113-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+113-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+114            </intent-filter>
+115            <intent-filter>
+115-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+116                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+116-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+116-->[androidx.profileinstaller:profileinstaller:1.4.0] /data/user/0/com.tom.rv2ide/files/home/.gradle/caches/9.1.0/transforms/1604dc1602b54a71fe207d3671d90e39/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+117            </intent-filter>
+118        </receiver>
+119    </application>
+120
+121</manifest>

@@ -1,0 +1,19 @@
+com.win12
+color black
+color purple_200
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable ic_win12_logo
+drawable win12_wallpaper
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Theme_Win12
+xml backup_rules
+xml data_extraction_rules
+xml file_paths

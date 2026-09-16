@@ -1,0 +1,2 @@
+ninja: Entering directory `/storage/emulated/0/AndroidIDEProjects/Win12/app/.cxx/Debug/2v2fz143/arm64-v8a'
+ninja: no work to do.

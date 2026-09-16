@@ -1,0 +1,11 @@
+{
+  "name": "WIN12 Administrator PC",
+  "short_name": "WIN12",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#eef4fb",
+  "theme_color": "#eef4fb",
+  "icons": [{ "src": "./win12.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

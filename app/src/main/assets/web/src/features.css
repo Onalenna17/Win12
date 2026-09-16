@@ -1,0 +1,285 @@
+/* Keep every taskbar function reachable without letting the center rail cover the tray. */
+.taskbar-v3 { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 16px; height: 62px; padding: 0 13px; border-radius: 12px; }
+.taskbar-v3 .taskbar-left { flex-shrink: 0; }
+.taskbar-v3 .taskbar-center { position: static; transform: none; min-width: 0; justify-content: center; gap: 5px; }
+.taskbar-v3 .taskbar-center > .taskbar-button, .taskbar-v3 .taskbar-search { flex-shrink: 0; }
+.taskbar-v3 .taskbar-app-strip { display: flex; align-items: center; min-width: 42px; flex: 0 1 auto; width: calc(var(--app-count) * 46px); max-width: 100%; }
+.taskbar-v3 .taskbar-apps { display: flex; flex: 1; min-width: 0; width: 100%; max-width: none; gap: 4px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
+.taskbar-v3 .taskbar-app { flex: 0 0 42px; }
+.taskbar-v3 .taskbar-button { height: 44px; width: 42px; }
+.taskbar-v3 .taskbar-app-overflow { width: 22px; height: 35px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border-radius: 5px; color: var(--muted); }
+.taskbar-v3 .taskbar-app-overflow:hover { background: var(--hover); color: var(--text); }
+.taskbar-v3 .taskbar-tray { display: flex; align-items: center; justify-self: end; gap: 3px; min-width: 0; }
+.taskbar-v3 .tray-hidden { display: flex; width: 25px; }
+.taskbar-v3 .tray-rotation { display: flex; width: 28px; height: 35px; align-items: center; justify-content: center; color: var(--muted); }
+.taskbar-v3 .tray-connectivity { display: flex; gap: 8px; padding: 0 8px; height: 38px; width: auto; }
+.taskbar-v3 .tray-connectivity > svg { display: block; flex-shrink: 0; }
+.taskbar-v3 .tray-clock { min-width: 74px; padding: 5px 7px; }
+.taskbar-v3 .tray-clock > span { font-size: 11px; font-variant-numeric: tabular-nums; }
+.taskbar-v3 .tray-clock > small { font-size: 9px; }
+.taskbar-v3 .tray-notifications { display: flex; width: 29px; }
+.taskbar-v3 .taskbar-search { display: flex; width: 116px; }
+.taskbar-v3 .taskbar-search > span { display: inline; }
+.taskbar-v3 .taskbar-separator { display: block; }
+.taskbar-v3 .quick-settings-notification-dot { display: none; position: absolute; width: 5px; height: 5px; border-radius: 50%; right: 4px; top: 6px; background: var(--accent); }
+.theme-light .taskbar-v3 { background: rgba(244, 248, 254, .94); border-color: rgba(103, 135, 172, .28); box-shadow: 0 8px 32px #36557926, inset 0 1px 0 #fff; color: #263c57; }
+.theme-dark .taskbar-v3 { background: rgba(20, 33, 52, .95); border-color: rgba(163, 191, 231, .22); box-shadow: 0 10px 38px #020b1b66, inset 0 1px 0 #e1eeff09; color: #e5efff; }
+.theme-light .taskbar-v3 .taskbar-app.active { background: #cfe3f59c; border-color: #76a2ce38; }
+.theme-light .taskbar-v3 .taskbar-app.running::after { background: #76899f; }
+.theme-light .taskbar-v3 .taskbar-app.active::after { background: #247bc8; }
+.theme-dark .taskbar-v3 .taskbar-app.active { background: #83b6f21e; border-color: #a9c9f325; }
+.theme-dark .taskbar-v3 .taskbar-app.active::after { background: #87c3ff; }
+.taskbar-v3 .taskbar-tray .unavailable-signal { opacity: .6; }
+.theme-light .green-text { color: #157349 !important; }
+.theme-light .copilot-taskbar-button { color: #3970aa; }
+.theme-light .purple-text { color: #7854ba; }
+.system-tray-flyout { max-height: calc(100dvh - 107px); overflow: auto; }
+.tray-app-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; padding: 5px 3px 10px; border-bottom: 1px solid var(--line); margin-bottom: 6px; }
+.tray-app-grid button { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 5px; }
+.tray-app-grid button:hover { background: var(--hover); }
+
+.display-orientation-preview { display: flex; align-items: center; gap: 24px; margin: 31px 0 29px; }
+.mini-display { position: relative; width: 128px; height: 83px; border: 5px solid #667e9c; border-radius: 8px; background: linear-gradient(145deg, #a9cfee, #6d9bce); box-shadow: 0 9px 20px #14273c16; overflow: hidden; }
+.mini-display.portrait { width: 70px; height: 111px; }
+.mini-display > div { position: absolute; left: 8%; bottom: 7%; right: 8%; height: 9%; border-radius: 3px; background: #e8f3ffb0; }
+.mini-display > span { position: absolute; left: 12%; right: 20%; top: 22%; height: 45%; background: #eff7ff90; border: 1px solid #fff7; border-radius: 4px; }
+.mini-display > i { position: absolute; inset: 30% 5% 17% 60%; background: #497aa558; border-radius: 4px; }
+.display-orientation-preview > div:last-child { flex: 1; min-width: 0; }
+.display-orientation-preview h2 { font-size: 17px; font-weight: 500; }
+.display-orientation-preview p { color: var(--quiet); font-size: 11px; margin-top: 9px; }
+.orientation-options { display: flex; flex-direction: column; gap: 9px; }
+.orientation-options button { display: flex; align-items: center; gap: 15px; text-align: left; width: 100%; border: 1px solid var(--line-strong); border-radius: 6px; padding: 15px; }
+.orientation-options button.chosen { border-color: var(--accent); background: var(--selected); }
+.orientation-options button > svg { color: var(--accent); }
+.orientation-options button > span { flex: 1; }
+.orientation-options button strong { display: block; font-size: 12px; font-weight: 500; }
+.orientation-options button small { display: block; font-size: 10px; margin-top: 5px; color: var(--quiet); }
+.orientation-options button > i { display: block; width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--quiet); }
+.orientation-options button.chosen > i { border: 4px solid var(--accent); background: var(--solid); }
+.orientation-status { font-size: 11px; line-height: 1.8; color: var(--muted); margin: 17px 0; }
+.wallpaper-gallery-link { margin-top: 14px; }
+
+/* Official software references are distinct from installed application records. */
+.software-center-page { height: 100%; min-height: 0; overflow: auto; padding: 28px 32px 30px; }
+.software-center-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 25px; border-bottom: 1px solid var(--line); }
+.software-eyebrow { color: var(--quiet); font-size: 9px; letter-spacing: 1.2px; margin-bottom: 10px; }
+.software-center-header h1 { font-size: 28px; font-weight: 550; letter-spacing: -.8px; }
+.software-center-header > div > p:last-child { font-size: 11px; line-height: 1.6; color: var(--muted); margin-top: 9px; max-width: 400px; }
+.software-center-header > button { font-size: 10px; }
+.software-trust-note { display: flex; align-items: flex-start; gap: 11px; padding: 20px 0 8px; color: var(--accent); }
+.software-trust-note svg { flex-shrink: 0; margin-top: 2px; }
+.software-trust-note p { font-size: 11px; line-height: 1.8; color: var(--muted); }
+.official-software { padding: 28px 0; border-bottom: 1px solid var(--line); }
+.official-software-heading { display: flex; align-items: center; gap: 16px; }
+.official-software-heading > div { flex: 1; }
+.official-software-heading h2 { font-size: 18px; font-weight: 500; letter-spacing: -.3px; }
+.official-software-heading p { font-size: 10px; color: var(--quiet); margin-top: 6px; }
+.uninstalled-software-icon { width: 47px; height: 47px; display: flex; align-items: center; justify-content: center; color: var(--quiet); border: 1px dashed var(--line-strong); border-radius: 8px; flex-shrink: 0; }
+.software-install-state { display: flex; align-items: center; gap: 5px; font-size: 10px; color: var(--quiet); max-width: 145px; text-align: right; }
+.software-install-state.ready { color: #77c8a7; }
+.theme-light .software-install-state.ready { color: #177c56; }
+.official-software-description { font-size: 12px; line-height: 1.8; color: var(--muted); margin-top: 18px; }
+.verified-package { display: flex; align-items: center; gap: 8px; padding: 13px 0 1px; color: var(--accent); }
+.verified-package > span { flex: 1; font-size: 11px; min-width: 0; }
+.verified-package code { display: block; color: var(--quiet); font-family: Consolas, monospace; font-size: 10px; margin-top: 5px; overflow-wrap: anywhere; }
+.verified-package > small { font-size: 9px; color: var(--quiet); }
+.software-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 17px; }
+.software-actions > a, .maintenance-actions > a { text-decoration: none; }
+.software-actions > .text-button { font-size: 10px; margin-left: 3px; }
+.official-software-support { display: flex; gap: 9px; align-items: flex-start; margin-top: 19px; color: var(--quiet); }
+.official-software-support svg { margin-top: 2px; flex-shrink: 0; }
+.official-software-support p { font-size: 10px; line-height: 1.8; }
+.official-software > .text-button { margin-top: 12px; font-size: 10px; }
+.software-runtime-link { margin-left: 16px; }
+.software-catalog-disclaimer { color: var(--quiet); font-size: 10px; line-height: 1.8; margin-top: 23px; }
+.maintenance-progress { background: var(--selected); border: 1px solid var(--line-strong); border-radius: 7px; padding: 18px; margin: 20px 0 8px; }
+.maintenance-progress > div:first-child { display: flex; align-items: center; gap: 11px; color: var(--accent); }
+.maintenance-progress h3 { font-size: 13px; font-weight: 500; color: var(--text); }
+.maintenance-progress p { font-size: 11px; line-height: 1.8; color: var(--muted); margin-top: 12px; }
+.maintenance-progress > small { font-size: 10px; display: block; margin-top: 13px; color: var(--quiet); line-height: 1.7; }
+.maintenance-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 11px; margin-top: 18px; }
+.maintenance-consent { display: flex; align-items: flex-start; gap: 9px; color: var(--muted); font-size: 11px; line-height: 1.8; margin-top: 23px; }
+.maintenance-consent input { margin-top: 4px; flex-shrink: 0; }
+.software-catalog.compact .official-software-heading h2 { font-size: 16px; }
+.software-catalog.compact .official-software { padding: 23px 0; }
+
+/* High-resolution canvas dimensions never depend on the CSS size of the window. */
+.paint-app { display: flex; flex-direction: column; height: 100%; min-height: 0; }
+.paint-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 6px 12px; border-bottom: 1px solid var(--line); background: var(--header-bg); }
+.paint-file-tools, .paint-brush-tools { display: flex; align-items: center; gap: 3px; }
+.paint-file-tools .toolbar-divider { margin: 0 5px; }
+.paint-brush-tools > button { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 5px; color: var(--muted); }
+.paint-brush-tools > button.active { background: var(--selected); color: var(--accent); }
+.paint-brush-tools > label { display: flex; align-items: center; gap: 9px; font-size: 10px; color: var(--muted); padding: 0 9px; }
+.paint-brush-tools input { width: 80px; }
+.paint-brush-tools small { width: 28px; font-variant-numeric: tabular-nums; }
+.paint-colors { display: flex; align-items: center; gap: 12px; padding: 10px 18px; border-bottom: 1px solid var(--line); color: var(--quiet); }
+.paint-colors > div { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.paint-colors > div > button { width: 23px; height: 23px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid #8d9bab70; box-shadow: inset 0 0 0 2px #ffffff0a; }
+.paint-colors > div > button.chosen { outline: 2px solid var(--accent); outline-offset: 2px; }
+.custom-color { display: flex; align-items: center; gap: 6px; font-size: 9px; color: var(--muted); margin-left: auto; cursor: pointer; }
+.custom-color input { width: 26px; height: 25px; padding: 0; border: 0; background: none; cursor: pointer; }
+.paint-stage { display: flex; justify-content: center; align-items: center; flex: 1; min-height: 0; min-width: 0; padding: 22px; overflow: hidden; background: #111c2b; }
+.theme-light .paint-stage { background: #dce5ef; }
+.paint-stage canvas { width: auto; height: auto; max-width: 100%; max-height: 100%; box-shadow: 0 5px 18px #07182b36; background: white; display: block; cursor: crosshair; touch-action: none; }
+.paint-stage canvas:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.paint-status { min-height: 29px; display: flex; align-items: center; flex-wrap: wrap; gap: 15px; padding: 7px 16px; border-top: 1px solid var(--line); background: var(--header-bg); font-size: 9px; color: var(--quiet); }
+.paint-status > span:nth-child(3) { margin-left: auto; }
+.paint-status button { font-size: 9px; color: var(--accent); }
+.paint-format-label { margin-top: 18px; }
+
+.photos-app { display: flex; height: 100%; min-height: 0; }
+.photos-sidebar { width: 178px; flex: 0 0 178px; display: flex; flex-direction: column; min-height: 0; padding: 12px 10px; border-right: 1px solid var(--line); background: var(--sidebar-bg); }
+.photos-nav { display: flex; flex-direction: column; gap: 3px; margin-bottom: 12px; }
+.photos-nav button { display: flex; align-items: center; gap: 8px; padding: 10px 9px; border-radius: 5px; font-size: 10px; color: var(--muted); text-align: left; }
+.photos-nav button.active { background: var(--selected); color: var(--text); }
+.photos-nav button.active > svg { color: var(--accent); }
+.photos-thumbnails { flex: 1; min-height: 0; overflow: auto; }
+.photos-thumbnails > button { display: block; width: 100%; text-align: left; margin-bottom: 12px; padding: 3px; border: 1px solid transparent; border-radius: 6px; }
+.photos-thumbnails > button > div { width: 100%; height: 78px; display: flex; align-items: center; justify-content: center; background: var(--input-bg); border-radius: 3px; overflow: hidden; }
+.photos-thumbnails img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photos-thumbnails > button > span { display: block; font-size: 10px; line-height: 1.4; padding: 7px 3px 3px; color: var(--muted); }
+.photos-thumbnails > button.active { background: var(--selected); border-color: var(--accent); }
+.photos-import { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 12px 2px 5px; border-top: 1px solid var(--line); font-size: 10px; color: var(--muted); }
+.photos-view { display: flex; flex-direction: column; flex: 1; min-width: 0; min-height: 0; }
+.photos-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 11px 17px; min-height: 59px; border-bottom: 1px solid var(--line); background: var(--header-bg); }
+.photos-toolbar h2 { font-size: 13px; font-weight: 500; line-height: 1.4; }
+.photos-toolbar small { font-size: 9px; color: var(--quiet); display: block; margin-top: 5px; }
+.photos-toolbar > div:first-child { flex: 1; min-width: 0; }
+.photos-toolbar > div:last-child { display: flex; align-items: center; }
+.photos-image-stage { display: flex; align-items: center; justify-content: center; flex: 1; min-height: 0; min-width: 0; background: #101a28; padding: 20px; overflow: auto; }
+.theme-light .photos-image-stage { background: #dce6f0; }
+.photos-image-stage > img { display: block; width: 100%; height: 100%; min-width: 0; object-fit: contain; transform-origin: center; transition: transform .15s; }
+.photos-view > .empty-state { flex: 1; }
+.photos-info { padding: 14px 20px; border-top: 1px solid var(--line); background: var(--solid); }
+.photos-info strong { font-size: 11px; font-weight: 500; }
+.photos-info p { color: var(--muted); font-size: 10px; line-height: 1.7; margin-top: 7px; }
+.photos-info small { color: var(--quiet); font-size: 9px; display: block; margin-top: 6px; }
+.photos-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 12px; border-top: 1px solid var(--line); background: var(--header-bg); flex-wrap: wrap; }
+.photos-bottom > div { display: flex; align-items: center; gap: 3px; }
+.photos-zoom > span { width: 35px; text-align: center; font-size: 9px; color: var(--muted); }
+.photos-bottom .primary-button { min-height: 29px; padding: 6px 11px; font-size: 10px; }
+
+.terminal-app { display: flex; flex-direction: column; height: 100%; min-height: 0; }
+.terminal-toolbar { display: flex; align-items: center; padding: 5px 11px 5px 16px; border-bottom: 1px solid var(--line); gap: 8px; background: var(--header-bg); min-height: 40px; }
+.terminal-toolbar > span { display: flex; gap: 9px; align-items: center; font-size: 11px; }
+.terminal-toolbar > small { font-size: 9px; color: var(--quiet); margin-left: auto; }
+.terminal-output { flex: 1; min-height: 0; overflow: auto; padding: 19px 22px; background: #101722; color: #d2e4f6; font: 12px/1.8 Consolas, "Courier New", monospace; user-select: text; }
+.theme-light .terminal-output { background: #f6f9fd; color: #223d59; }
+.terminal-output pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font: inherit; }
+.terminal-output form { display: flex; align-items: flex-start; gap: 7px; }
+.terminal-output form > span { white-space: nowrap; }
+.terminal-output input { flex: 1; min-width: 0; color: inherit; background: none; border: 0; font: inherit; }
+.terminal-app > footer { display: flex; align-items: center; justify-content: space-between; padding: 7px 17px; font-size: 9px; color: var(--quiet); border-top: 1px solid var(--line); background: var(--header-bg); }
+.terminal-app > footer button { color: var(--accent); font-size: 9px; }
+
+@container (max-width: 700px) {
+  .software-center-page { padding: 24px 24px 25px; }
+  .software-center-header { gap: 17px; }
+  .software-center-header h1 { font-size: 24px; }
+  .software-install-state { font-size: 9px; max-width: 111px; }
+  .software-actions > button, .software-actions > a { font-size: 10px; padding-left: 11px; padding-right: 11px; }
+  .photos-sidebar { width: 148px; flex-basis: 148px; }
+  .photos-toolbar { padding-left: 13px; padding-right: 9px; }
+  .photos-bottom { gap: 7px; }
+  .paint-stage { padding: 15px; }
+}
+@container (max-width: 480px) {
+  .software-center-page { padding: 21px 18px; }
+  .software-center-header { flex-wrap: wrap; gap: 17px; }
+  .software-center-header h1 { font-size: 24px; }
+  .official-software-heading { gap: 11px; flex-wrap: wrap; }
+  .official-software-heading h2 { font-size: 16px; }
+  .official-software-heading > div { min-width: 170px; }
+  .official-software-heading > .software-install-state { margin: 0 0 0 57px; max-width: none; text-align: left; }
+  .official-software-description { font-size: 11px; }
+  .official-software-support p { font-size: 9px; }
+  .software-runtime-link { display: flex; margin-left: 0; }
+  .software-actions { align-items: stretch; }
+  .software-actions > button, .software-actions > a { white-space: normal; }
+  .display-orientation-preview { gap: 17px; }
+  .display-orientation-preview h2 { font-size: 14px; }
+  .display-orientation-preview p { font-size: 10px; }
+  .orientation-options button { padding: 12px; gap: 11px; }
+  .orientation-options button strong { font-size: 11px; }
+  .orientation-options button small { font-size: 9px; }
+  .photos-sidebar { width: 85px; flex-basis: 85px; padding: 10px 6px; }
+  .photos-nav button { padding: 9px 0; flex-direction: column; gap: 6px; text-align: center; font-size: 8px; }
+  .photos-thumbnails > button > div { height: 60px; }
+  .photos-thumbnails > button > span { font-size: 8px; }
+  .photos-import span { display: none; }
+  .photos-image-stage { padding: 9px; }
+  .photos-toolbar { padding: 10px 10px; gap: 5px; flex-wrap: wrap; }
+  .photos-toolbar h2 { font-size: 11px; }
+  .photos-toolbar > div:last-child { margin-left: auto; }
+  .photos-toolbar .icon-button { width: 27px; }
+  .photos-bottom { padding: 7px 8px; gap: 6px; }
+  .photos-bottom > div { flex-wrap: wrap; }
+  .photos-bottom .icon-button { width: 26px; height: 28px; }
+  .photos-bottom .primary-button { font-size: 9px; padding: 6px 7px; }
+  .photos-info { padding: 12px; }
+  .paint-toolbar { gap: 4px; padding: 6px 8px; }
+  .paint-brush-tools { flex: 1; justify-content: flex-end; }
+  .paint-brush-tools > label { gap: 7px; padding: 0 5px; }
+  .paint-brush-tools input { width: 64px; }
+  .paint-colors { padding: 9px 12px; gap: 9px; }
+  .paint-colors > div { gap: 6px; }
+  .paint-colors > svg { display: none; }
+  .paint-colors > div > button { width: 22px; height: 22px; }
+  .custom-color > span { display: none; }
+  .paint-stage { padding: 12px; }
+  .paint-status { gap: 7px; padding: 7px 10px; font-size: 8px; }
+  .paint-status > span:nth-child(2) { display: none; }
+  .terminal-toolbar > small { display: none; }
+  .terminal-toolbar > span { flex: 1; }
+  .terminal-output { padding: 15px; font-size: 11px; }
+  .terminal-output form { flex-wrap: wrap; }
+  .terminal-output form > input { min-width: 130px; }
+}
+@media (max-width: 1100px) {
+  .taskbar-v3 { gap: 10px; }
+  .taskbar-v3 .pc-taskbar-identity > span:last-child { display: none; }
+  .taskbar-v3 .taskbar-search { width: 36px; justify-content: center; padding: 0; background: none; border: 0; }
+  .taskbar-v3 .taskbar-search > span { display: none; }
+  .taskbar-v3 .tray-runtime { display: none; }
+}
+@media (max-width: 800px) {
+  .taskbar-v3 { gap: 7px; padding: 0 9px; }
+  .taskbar-v3 .tray-rotation { display: none; }
+  .taskbar-v3 .taskbar-button, .taskbar-v3 .taskbar-app { width: 37px; flex-basis: 37px; }
+  .taskbar-v3 .copilot-taskbar-button { display: none; }
+  .taskbar-v3 .taskbar-center { gap: 3px; }
+  .taskbar-v3 .taskbar-app-strip { width: calc(var(--app-count) * 40px); }
+  .taskbar-v3 .tray-clock { min-width: 67px; padding-left: 5px; padding-right: 5px; }
+  .taskbar-v3 .tray-connectivity { gap: 7px; padding: 0 6px; }
+}
+@media (max-width: 600px) {
+  .taskbar-v3 { height: 59px; left: 8px; right: 8px; bottom: 9px; gap: 3px; padding: 0 6px; }
+  .taskbar-v3 .pc-taskbar-identity { padding: 0 4px !important; }
+  .taskbar-v3 .pc-taskbar-identity > .color-icon { width: 23px !important; height: 23px !important; }
+  .taskbar-v3 .taskbar-button, .taskbar-v3 .taskbar-app { width: 34px; flex-basis: 34px; height: 42px; }
+  .taskbar-v3 .taskbar-button > .color-icon, .taskbar-v3 .taskbar-button > .application-icon { width: 25px !important; height: 25px !important; }
+  .taskbar-v3 .taskbar-search { display: flex; width: 29px; }
+  .taskbar-v3 .taskbar-app-strip { min-width: 35px; width: calc(var(--app-count) * 36px); }
+  .taskbar-v3 .taskbar-apps { gap: 2px; }
+  .taskbar-v3 .taskbar-center { gap: 1px; }
+  .taskbar-v3 .taskbar-separator { display: none; }
+  .taskbar-v3 .taskbar-tray { gap: 1px; }
+  .taskbar-v3 .tray-hidden { display: flex; width: 21px; }
+  .taskbar-v3 .tray-clock { min-width: 56px; padding: 3px; }
+  .taskbar-v3 .tray-clock > span { font-size: 10px; }
+  .taskbar-v3 .tray-clock > small { font-size: 8px; }
+  .taskbar-v3 .tray-connectivity { display: flex; padding: 0 4px; gap: 5px; }
+  .taskbar-v3 .tray-connectivity > svg { display: block; width: 13px; height: 13px; }
+  .taskbar-v3 .tray-connectivity > svg:last-of-type { width: 17px; height: 17px; }
+  .taskbar-v3 .tray-notifications { display: none; }
+  .taskbar-v3 .quick-settings-notification-dot { display: block; }
+  .taskbar-v3 .show-desktop-edge { width: 4px; margin-left: 1px; }
+  .taskbar-v3 .taskbar-app-overflow { width: 18px; }
+  .system-tray-flyout { right: 10px; }
+}
+@media (max-width: 360px) {
+  .taskbar-v3 .taskbar-left { display: none; }
+  .taskbar-v3 { grid-template-columns: minmax(0, 1fr) auto; }
+}
+@media (prefers-reduced-motion: reduce) { .photos-image-stage > img { transition: none; } }

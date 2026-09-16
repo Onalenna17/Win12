@@ -1,0 +1,3 @@
+/storage/emulated/0/AndroidIDEProjects/Win12/app/.cxx/Debug/h2z4a1i6/arm64-v8a/CMakeFiles/myapplication.dir
+/storage/emulated/0/AndroidIDEProjects/Win12/app/.cxx/Debug/h2z4a1i6/arm64-v8a/CMakeFiles/edit_cache.dir
+/storage/emulated/0/AndroidIDEProjects/Win12/app/.cxx/Debug/h2z4a1i6/arm64-v8a/CMakeFiles/rebuild_cache.dir

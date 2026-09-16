@@ -1,0 +1,48 @@
+import { useEffect, useState } from 'react';
+import { ArrowRight, ExternalLink, Info, ListFilter, LoaderCircle, Monitor, MoreHorizontal, Pin, RefreshCw, Search, ShieldCheck, Trash2 } from 'lucide-react';
+import { AnimatePresence } from 'framer-motion';
+import { ApplicationIcon } from './Icons';
+import { EmptyState, IconButton, Modal } from './Shared';
+import { appSearch, appTypeLabel, getState, operation, saveState, type DesktopActions, type DesktopApp, type DesktopWindow } from '../lib/desktop';
+import { refreshRegistry, useRegistry } from '../lib/registry';
+import { SoftwareCatalog } from '../apps/SoftwareCenter';
+
+interface Props {
+  win: DesktopWindow; actions: DesktopActions; pinned: string[]; taskbarPins: string[]; shortcuts: string[];
+  onPin: (app: DesktopApp) => void; onTaskbarPin: (app: DesktopApp) => void; onShortcut: (app: DesktopApp) => void;
+}
+export function Applications({ win, actions, pinned, taskbarPins, shortcuts, onPin, onTaskbarPin, onShortcut }: Props) {
+  const registry = useRegistry();
+  const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState('All applications');
+  const [tab, setTab] = useState(win.args?.tab === 'checks' ? 'checks' : 'apps');
+  const [menu, setMenu] = useState<string | null>(null);
+  const [details, setDetails] = useState<DesktopApp | null>(null);
+  const [remove, setRemove] = useState<DesktopApp | null>(null);
+  useEffect(() => { if (win.args?.tab) setTab(win.args.tab === 'checks' ? 'checks' : 'apps'); }, [win.args?.tab]);
+  const filtered = registry.apps.filter(app => appSearch(app, search) && (filter !== 'Android packages' || app.launchType === 'ANDROID_PACKAGE') && (filter !== 'Windows runtime' || app.launchType === 'WINDOWS_EXECUTABLE') && (filter !== 'WIN12 apps' || app.isSystemApp));
+  const refresh = () => { const result = refreshRegistry(); if (!result.success) actions.notify('Discovery unavailable', result.message || 'Use the Android host to discover installed packages.'); };
+  return <div className="utility-page applications-page" onClick={() => setMenu(null)}>
+    <header className="utility-heading"><div><h1>Your applications</h1><p>Real apps. One familiar desktop.</p></div><button className="secondary-button" disabled={registry.status === 'DISCOVERING'} onClick={refresh}>{registry.status === 'DISCOVERING' ? <LoaderCircle size={15} className="spin" /> : <RefreshCw size={15} />}Refresh applications</button></header>
+    <div className="utility-tabs"><button className={tab === 'apps' ? 'selected' : ''} onClick={() => setTab('apps')}>Installed applications<span>{registry.apps.length}</span></button><button className={tab === 'checks' ? 'selected' : ''} onClick={() => setTab('checks')}>Get / reinstall apps</button></div>
+    <div className={`registry-status ${registry.status === 'READY' ? 'ready' : ''}`}><ShieldCheck size={16} /><div><strong>{registry.status === 'READY' ? 'Device discovery complete' : registry.status === 'DISCOVERING' ? 'Discovering your applications' : 'Android discovery unavailable'}</strong><p>{registry.message}</p></div>{registry.scannedAt > 0 && <time>{new Date(registry.scannedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</time>}</div>
+    {tab === 'apps' ? <>
+      <div className="app-list-filters"><label className="search-field"><Search size={16} /><input placeholder="Search name, package, version, or executable" aria-label="Find an application" value={search} onChange={event => setSearch(event.target.value)} /></label><div className="select-with-icon"><ListFilter size={15} /><select aria-label="Application source" value={filter} onChange={event => setFilter(event.target.value)}>{['All applications', 'WIN12 apps', 'Android packages', 'Windows runtime'].map(value => <option key={value}>{value}</option>)}</select></div></div>
+      <div className="application-count">{filtered.length} applications / {registry.scope}</div>
+      <div className="application-list">{filtered.map(app => <div className="application-row" key={app.id}><ApplicationIcon app={app} size={37} /><div className="application-info"><strong>{app.displayName}</strong><small>{appTypeLabel(app)}{app.versionName ? ` / ${app.versionName}` : ''}</small></div><span className="app-state-label">{app.isSystemApp ? 'Built-in' : app.runningState === 'RUNNING' ? 'Running (observed)' : app.isLaunchable ? 'Launchable' : 'Unavailable'}</span><button className="secondary-button app-open-button" disabled={!app.isLaunchable} onClick={() => actions.launchApp(app)}>Open<ArrowRight size={13} /></button><div className="app-row-menu-anchor"><IconButton title={`Options for ${app.displayName}`} onClick={() => { setTimeout(() => setMenu(menu === app.id ? null : app.id), 0); }}><MoreHorizontal size={19} /></IconButton>{menu === app.id && <div className="command-menu acrylic app-row-menu" onClick={event => event.stopPropagation()}>
+        <button onClick={() => { onPin(app); setMenu(null); }}><Pin size={15} />{pinned.includes(app.id) ? 'Unpin from Start' : 'Pin to Start'}</button><button onClick={() => { onTaskbarPin(app); setMenu(null); }}><Pin size={15} />{taskbarPins.includes(app.id) ? 'Unpin from taskbar' : 'Pin to taskbar'}</button><button onClick={() => { onShortcut(app); setMenu(null); }}><Monitor size={15} />{shortcuts.includes(app.id) ? 'Remove shortcut' : 'Create desktop shortcut'}</button>
+        {app.capabilities?.appSettings && <button onClick={() => { const response = operation('openApplicationSettings', app.id); if (!response.success) actions.notify('Unable to open Android settings', response.message || 'Unavailable'); setMenu(null); }}><ExternalLink size={15} />Android app settings</button>}
+        <div className="menu-divider" /><button onClick={() => { setDetails(app); setMenu(null); }}><Info size={15} />Properties</button>{app.capabilities?.uninstall && <button className="danger-text" onClick={() => { setRemove(app); setMenu(null); }}><Trash2 size={15} />Uninstall through Android</button>}
+      </div>}</div></div>)}{filtered.length === 0 && <EmptyState icon={<Search size={34} />} title="No matching applications" description={search ? 'No real registered application matches this search.' : 'No application of this type has been verified. Nothing is simulated.'} />}</div>
+    </> : <div className="integration-checks"><SoftwareCatalog compact /></div>}
+    <div className="utility-footnote"><ShieldCheck size={13} />External running state is shown only when observed by Android. Unobservable state is Unknown.</div>
+    <AnimatePresence>{details && <ApplicationDetails app={details} onClose={() => setDetails(null)} />}{remove && <Modal title={`Request removal of ${remove.displayName}?`} onClose={() => setRemove(null)} actions={<><button className="secondary-button" onClick={() => setRemove(null)}>Cancel</button><button className="danger-button" onClick={() => { const response = operation('uninstallApplication', remove.id); actions.notify(response.success ? 'Android confirmation required' : 'Uninstall unavailable', response.message || 'The application remains installed until Android confirms removal.'); setRemove(null); }}>Continue in Android</button></>}><p>Android will ask you to confirm. The application is not marked removed until a fresh PackageManager scan confirms it is no longer present.</p></Modal>}</AnimatePresence>
+  </div>;
+}
+
+export function ApplicationDetails({ app, onClose }: { app: DesktopApp; onClose: () => void }) {
+  const [label, setLabel] = useState(() => getState<Record<string, string>>('shortcutLabels', {})[app.id] || app.displayName);
+  const [saved, setSaved] = useState(false);
+  const [error, setError] = useState('');
+  return <Modal title="Application properties" onClose={onClose} actions={<button className="primary-button" onClick={onClose}>Close</button>}><div className="application-properties"><ApplicationIcon app={app} size={48} /><h3>{app.displayName}</h3><p>{appTypeLabel(app)}</p><dl><dt>Registry ID</dt><dd>{app.id}</dd><dt>Installed</dt><dd>{app.isInstalled && app.verified ? 'Verified' : 'Unverified'}</dd><dt>Launchable</dt><dd>{app.isLaunchable ? 'Yes' : 'No'}</dd><dt>Version</dt><dd>{app.versionName || (app.isSystemApp ? '12.0.2' : 'Unavailable')}</dd>{app.packageName && <><dt>Package</dt><dd>{app.packageName}</dd><dt>Activity</dt><dd>{app.launchIntent}</dd></>}{app.executablePath && <><dt>Executable</dt><dd>{app.executablePath}</dd></>}<dt>Process</dt><dd>{app.isSystemApp ? 'Managed by the WIN12 window manager' : app.runningState || 'UNKNOWN'}</dd>{app.runningEvidence && <><dt>Evidence</dt><dd>{app.runningEvidence}</dd></>}<dt>Icon source</dt><dd>{app.isSystemApp ? 'Original WIN12 SVG' : app.iconSource || 'Generic application icon'}</dd></dl><label className="field-label" htmlFor="shortcut-label">Desktop shortcut label</label><div className="shortcut-label-editor"><input id="shortcut-label" className="text-input" value={label} maxLength={60} onChange={event => { setLabel(event.target.value); setSaved(false); }} /><button className="secondary-button" disabled={!label.trim()} onClick={() => { const ok = saveState({ shortcutLabels: { ...getState<Record<string, string>>('shortcutLabels', {}), [app.id]: label.trim() } }); if (ok) { setSaved(true); window.dispatchEvent(new Event('win12-shortcuts-changed')); } else setError('Unable to save the shortcut label.'); }}>{saved ? 'Saved' : 'Save'}</button></div>{error && <p className="form-error">{error}</p>}<p className="field-hint">Changes the WIN12 shortcut label only, not the actual Android app.</p></div></Modal>;
+}

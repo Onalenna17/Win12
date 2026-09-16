@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bacfdf"/><stop offset=".48" stop-color="#e7f0f9"/><stop offset="1" stop-color="#b7d9ee"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fcfdff" stop-opacity=".94"/><stop offset=".3" stop-color="#a8cce8" stop-opacity=".54"/><stop offset=".7" stop-color="#dceefa" stop-opacity=".25"/><stop offset="1" stop-color="#7cadd2" stop-opacity=".82"/></linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#ffffff" stop-opacity=".07"/><stop offset=".5" stop-color="#ffffff"/><stop offset="1" stop-color="#ffffff" stop-opacity=".1"/></linearGradient>
+    <filter id="blur" x="-.5" y="-.5" width="2" height="2"><feGaussianBlur stdDeviation="36"/></filter>
+  </defs>
+  <path d="M0 0h3840v2160H0z" fill="url(#sky)"/>
+  <g transform="translate(2250 1100) rotate(-24)">
+    <ellipse cx="210" cy="240" rx="900" ry="820" fill="#698aab" opacity=".25" filter="url(#blur)"/>
+    <path d="M-700-1100C400-1350 1600-800 1600 200S350 1460-460 660C-1080 40-300-570 320-190C900 170 280 910-250 500" fill="none" stroke="url(#glass)" stroke-width="430"/>
+    <path d="M-700-1313C590-1550 1795-760 1795 200S300 1680-612 813C-1470 5-275-850 421-379C1140 78 400 1080-345 690" fill="none" stroke="url(#rim)" stroke-width="5"/>
+  </g>
+</svg>
